@@ -12,12 +12,14 @@ import android.support.v8.renderscript.Allocation;
 import android.support.v8.renderscript.Element;
 import android.support.v8.renderscript.RenderScript;
 import android.support.v8.renderscript.ScriptIntrinsicBlur;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewTreeObserver;
 
 class BlurView extends View {
-    private float mDownSampleFactor; // default 4
+    private static final String TAG = "BlurView";
+    private float mDownScaleFactor; // default 4
     private int mOverlayColor; // default #aaffffff
     private float mBlurRadius; // default 10dp (0 < r <= 25)
 
@@ -39,7 +41,7 @@ class BlurView extends View {
     public BlurView(Context context) {
         super(context);
         mBlurRadius = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 4, getResources().getDisplayMetrics());
-        mDownSampleFactor = 4;
+        mDownScaleFactor = 4;
         mOverlayColor = 0x30000000;
     }
 
@@ -56,8 +58,8 @@ class BlurView extends View {
             throw new IllegalArgumentException("Downsample factor must be greater than 0.");
         }
 
-        if (mDownSampleFactor != factor) {
-            mDownSampleFactor = factor;
+        if (mDownScaleFactor != factor) {
+            mDownScaleFactor = factor;
             mDirty = true; // may also change blur radius
             releaseBitmap();
             invalidate();
@@ -112,7 +114,7 @@ class BlurView extends View {
             return false;
         }
 
-        float downSampleFactor = mDownSampleFactor;
+        float downScaleFactor = mDownScaleFactor;
 
         if (mDirty || mRenderScript == null) {
             if (mRenderScript == null) {
@@ -135,9 +137,9 @@ class BlurView extends View {
             }
 
             mDirty = false;
-            float radius = mBlurRadius / downSampleFactor;
+            float radius = mBlurRadius / downScaleFactor;
             if (radius > 25) {
-                downSampleFactor = downSampleFactor * radius / 25;
+                downScaleFactor = downScaleFactor * radius / 25;
                 radius = 25;
             }
             mBlurScript.setRadius(radius);
@@ -146,8 +148,8 @@ class BlurView extends View {
         final int width = getWidth();
         final int height = getHeight();
 
-        int scaledWidth = Math.max(1, (int) (width / downSampleFactor));
-        int scaledHeight = Math.max(1, (int) (height / downSampleFactor));
+        int scaledWidth = Math.max(1, (int) (width / downScaleFactor));
+        int scaledHeight = Math.max(1, (int) (height / downScaleFactor));
 
         if (mBlurringCanvas == null || mBlurredBitmap == null
                 || mBlurredBitmap.getWidth() != scaledWidth
@@ -223,6 +225,7 @@ class BlurView extends View {
                     }
                     decor.draw(mBlurringCanvas);
                 } catch (StopException e) {
+                    Log.e(TAG, "onPreDraw: " + e.getMessage());
                 } finally {
                     mIsRendering = false;
                     RENDERING_COUNT--;
