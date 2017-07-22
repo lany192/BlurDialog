@@ -5,7 +5,7 @@ android {
     buildToolsVersion "26.0.0"
     defaultConfig {
         applicationId "com.github.lany192.blurdialog.sample"
-        minSdkVersion 15
+        minSdkVersion 14
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
