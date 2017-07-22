@@ -174,9 +174,9 @@ class BlurEngine {
         }
     }
 
-    public void setDownsampleFactor(float factor) {
+    public void setDownSampleFactor(float factor) {
         if (mBlurredBackgroundView != null) {
-            mBlurredBackgroundView.setDownsampleFactor(factor);
+            mBlurredBackgroundView.setDownSampleFactor(factor);
         }
     }
 

@@ -78,7 +78,7 @@ public class BlurView extends View {
         }
     }
 
-    public void setDownsampleFactor(float factor) {
+    public void setDownSampleFactor(float factor) {
         if (factor <= 0) {
             throw new IllegalArgumentException("Downsample factor must be greater than 0.");
         }
