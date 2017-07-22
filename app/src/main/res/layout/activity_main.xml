@@ -9,14 +9,15 @@
         android:id="@+id/my_image_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:contentDescription="@string/app_name"
-        android:scaleType="center"
+        android:scaleType="centerInside"
         android:src="@mipmap/hhh" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"/>
+        android:text="show dialog" />
 
 </FrameLayout>

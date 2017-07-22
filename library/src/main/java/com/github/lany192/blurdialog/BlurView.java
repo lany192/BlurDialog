@@ -5,7 +5,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.pm.ApplicationInfo;
-import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Rect;
@@ -13,12 +12,11 @@ import android.support.v8.renderscript.Allocation;
 import android.support.v8.renderscript.Element;
 import android.support.v8.renderscript.RenderScript;
 import android.support.v8.renderscript.ScriptIntrinsicBlur;
-import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewTreeObserver;
 
-public class BlurView extends View {
+class BlurView extends View {
     private float mDownSampleFactor; // default 4
     private int mOverlayColor; // default #aaffffff
     private float mBlurRadius; // default 10dp (0 < r <= 25)
@@ -40,34 +38,9 @@ public class BlurView extends View {
 
     public BlurView(Context context) {
         super(context);
-        init(null);
-    }
-
-    public BlurView(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        init(attrs);
-    }
-
-    public BlurView(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-        init(attrs);
-    }
-
-    private void init(AttributeSet attrs) {
-        final float defaultBlurRadius = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 4, getResources().getDisplayMetrics());
-        final float defaultDownSampleFactor = 4;
-        final int defaultOverlayColor = 0x30000000;
-
-        mBlurRadius = defaultBlurRadius;
-        mDownSampleFactor = defaultDownSampleFactor;
-        mOverlayColor = defaultOverlayColor;
-        if (attrs != null) {
-            TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.BlurView);
-            mBlurRadius = a.getDimension(R.styleable.BlurView_blurRadius, defaultBlurRadius);
-            mDownSampleFactor = a.getFloat(R.styleable.BlurView_downSampleFactor, defaultDownSampleFactor);
-            mOverlayColor = a.getColor(R.styleable.BlurView_overlayColor, defaultOverlayColor);
-            a.recycle();
-        }
+        mBlurRadius = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 4, getResources().getDisplayMetrics());
+        mDownSampleFactor = 4;
+        mOverlayColor = 0x30000000;
     }
 
     public void setBlurRadius(float radius) {

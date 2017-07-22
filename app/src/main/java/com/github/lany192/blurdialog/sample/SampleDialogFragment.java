@@ -46,7 +46,7 @@ public class SampleDialogFragment extends BlurDialogFragment {
 
     @Override
     protected boolean isActionBarBlurred() {
-        return false;
+        return true;
     }
 
     @Override
