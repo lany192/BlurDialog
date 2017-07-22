@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SampleDialogFragment dialogFragment = SampleDialogFragment.newInstance(4, 4, true);
+                SampleDialogFragment dialogFragment = SampleDialogFragment.newInstance();
                 dialogFragment.show(getSupportFragmentManager(), "TAG");
             }
         });

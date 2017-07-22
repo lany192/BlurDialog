@@ -54,7 +54,7 @@ public class BlurView extends View {
     }
 
     private void init(AttributeSet attrs) {
-        final float defaultBlurRadius = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 2, getResources().getDisplayMetrics());
+        final float defaultBlurRadius = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 4, getResources().getDisplayMetrics());
         final float defaultDownSampleFactor = 4;
         final int defaultOverlayColor = 0x30000000;
 

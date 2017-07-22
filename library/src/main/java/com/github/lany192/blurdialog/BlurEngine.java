@@ -168,6 +168,18 @@ class BlurEngine {
         mToolbar = toolbar;
     }
 
+    public void setBlurRadius(float radius) {
+        if (mBlurredBackgroundView != null) {
+            mBlurredBackgroundView.setBlurRadius(radius);
+        }
+    }
+
+    public void setDownsampleFactor(float factor) {
+        if (mBlurredBackgroundView != null) {
+            mBlurredBackgroundView.setDownsampleFactor(factor);
+        }
+    }
+
     private void blur() {
         mBlurredBackgroundLayoutParams = new FrameLayout.LayoutParams(
                 FrameLayout.LayoutParams.MATCH_PARENT,

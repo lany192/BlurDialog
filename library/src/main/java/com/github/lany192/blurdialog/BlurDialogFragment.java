@@ -59,6 +59,8 @@ public abstract class BlurDialogFragment extends DialogFragment {
         }
 
         mBlurEngine.setBlurActionBar(isActionBarBlurred());
+        mBlurEngine.setBlurRadius(radius);
+        mBlurEngine.setDownsampleFactor(factor);
 
         mDimmingEffect = isDimmingEnable();
     }
