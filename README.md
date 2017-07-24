@@ -1,8 +1,8 @@
 # BlurDialog
 这是一个使用renderscript库实现的模糊背景的对话框
 
-![image](https://github.com/lany192/BlurDialog/raw/master/Screenshot/a1.png)
-![image](https://github.com/lany192/BlurDialog/raw/master/Screenshot/a2.png)
+![image](https://github.com/lany192/BlurDialog/raw/master/Screenshot/pic1.png)
+![image](https://github.com/lany192/BlurDialog/raw/master/Screenshot/pic2.png)
 ## Join to the project
 
     defaultConfig {
