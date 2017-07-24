@@ -16,8 +16,8 @@ import android.view.ViewTreeObserver;
 import android.widget.FrameLayout;
 
 class BlurEngine {
-    static final float DEFAULT_BLUR_DOWN_SCALE_FACTOR = 4.0f;
-    static final int DEFAULT_BLUR_RADIUS = 8;
+    static final float DEFAULT_BLUR_DOWN_SCALE_FACTOR = 8.0f;
+    static final int DEFAULT_BLUR_RADIUS = 4;
     static final boolean DEFAULT_DIMMING_POLICY = false;
     static final boolean DEFAULT_ACTION_BAR_BLUR = false;
     private BlurView mBlurView;
