@@ -26,3 +26,6 @@
     public class SampleBottomDialogFragment extends BlurBottomDialogFragment {
         ...
     }
+## thanks
+tvbarthel https://github.com/tvbarthel/BlurDialogFragment
+Dmitry Saviuk https://github.com/Dimezis/BlurView
