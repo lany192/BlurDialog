@@ -1,0 +1,51 @@
+apply plugin: 'maven'
+apply plugin: 'bintray-release'
+
+publish {
+    bintrayUser = "${BINTRAY_USER}"
+    bintrayKey =  "${BINTRAY_KEY}"
+    artifactId = 'BlurDialog'
+    userOrg = 'lany192'
+    groupId = 'com.github.lany192'
+    uploadName = 'BlurDialog'
+    publishVersion = '1.0.0'
+    autoPublish = true
+    dryRun = false
+    desc = 'Library project to display Android Dialog with a blur effect.'
+    website = 'https://github.com/lany192/BlurDialog'
+    issueTracker = 'https://github.com/lany192/BlurDialog/issues'
+    repository = 'https://github.com/lany192/BlurDialog.git'
+    licences = ['Apache-2.0']
+}
+
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+
+task javadoc(type: Javadoc) {
+    options.encoding = "UTF-8"
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+javadoc {
+    options {
+        encoding "UTF-8"
+        charSet 'UTF-8'
+        author true
+        version true
+        links "http://docs.oracle.com/javase/7/docs/api"
+        title 'Library project to display Android Dialog with a blur effect.'   // 文档标题
+    }
+}
+
+artifacts {
+    archives javadocJar
+    archives sourcesJar
+}

@@ -53,9 +53,9 @@ class BlurView extends View {
         }
     }
 
-    public void setDownSampleFactor(float factor) {
+    public void setDownScaleFactor(float factor) {
         if (factor <= 0) {
-            throw new IllegalArgumentException("Downsample factor must be greater than 0.");
+            throw new IllegalArgumentException("DownScale factor must be greater than 0.");
         }
 
         if (mDownScaleFactor != factor) {
@@ -297,13 +297,6 @@ class BlurView extends View {
         drawBlurredBitmap(canvas, mBlurredBitmap, mOverlayColor);
     }
 
-    /**
-     * Custom draw the blurred bitmap and color to define your own shape
-     *
-     * @param canvas
-     * @param blurredBitmap
-     * @param overlayColor
-     */
     protected void drawBlurredBitmap(Canvas canvas, Bitmap blurredBitmap, int overlayColor) {
         if (blurredBitmap != null) {
             mRectSrc.right = blurredBitmap.getWidth();
@@ -316,6 +309,7 @@ class BlurView extends View {
     }
 
     private static class StopException extends RuntimeException {
+
     }
 
     private static StopException STOP_EXCEPTION = new StopException();

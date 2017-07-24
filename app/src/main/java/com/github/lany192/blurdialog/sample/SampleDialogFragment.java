@@ -11,15 +11,14 @@ import com.github.lany192.blurdialog.BlurDialogFragment;
 public class SampleDialogFragment extends BlurDialogFragment {
 
     public static SampleDialogFragment newInstance() {
-        SampleDialogFragment fragment = new SampleDialogFragment();
-        return fragment;
+        return new SampleDialogFragment();
     }
 
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle("Burl dialog");
+        builder.setTitle("Blur dialog");
         builder.setMessage("Do you know?");
         builder.setIcon(R.mipmap.ic_launcher);
         builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
