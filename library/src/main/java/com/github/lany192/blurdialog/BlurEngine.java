@@ -6,7 +6,6 @@ import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.os.Build;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.TypedValue;
@@ -15,7 +14,7 @@ import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.widget.FrameLayout;
 
-class BlurEngine {
+public class BlurEngine {
     static final float DEFAULT_BLUR_DOWN_SCALE_FACTOR = 8.0f;
     static final int DEFAULT_BLUR_RADIUS = 4;
     static final boolean DEFAULT_DIMMING_POLICY = false;
@@ -103,7 +102,6 @@ class BlurEngine {
         }
         try {
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB
-                    || mActivity instanceof ActionBarActivity
                     || mActivity instanceof AppCompatActivity) {
                 //add offset as top margin since actionBar height must also considered when we display
                 // the blurred background. Don't want to draw on the actionBar.
@@ -123,11 +121,11 @@ class BlurEngine {
         try {
             if (mToolbar != null) {
                 actionBarHeight = mToolbar.getHeight();
-            } else if (mActivity instanceof ActionBarActivity) {
-                ActionBar supportActionBar = ((ActionBarActivity) mActivity).getSupportActionBar();
-                if (supportActionBar != null) {
-                    actionBarHeight = supportActionBar.getHeight();
-                }
+//            } else if (mActivity instanceof ActionBarActivity) {
+//                ActionBar supportActionBar = ((ActionBarActivity) mActivity).getSupportActionBar();
+//                if (supportActionBar != null) {
+//                    actionBarHeight = supportActionBar.getHeight();
+//                }
             } else if (mActivity instanceof AppCompatActivity) {
                 ActionBar supportActionBar = ((AppCompatActivity) mActivity).getSupportActionBar();
                 if (supportActionBar != null) {

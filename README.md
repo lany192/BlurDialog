@@ -7,14 +7,14 @@
 
     defaultConfig {
         ...
-        renderscriptTargetApi 25
+        renderscriptTargetApi 27
         renderscriptSupportModeEnabled true
         ...
     }
 
     dependencies {
         ...
-        compile 'com.github.lany192:BlurDialog:1.0.0'
+        compile 'com.github.lany192:BlurDialog:1.0.1'
     }
 
 ## usage

@@ -17,7 +17,7 @@ import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewTreeObserver;
 
-class BlurView extends View {
+public class BlurView extends View {
     private static final String TAG = "BlurView";
     private float mDownScaleFactor; // default 4
     private int mOverlayColor; // default #aaffffff

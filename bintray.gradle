@@ -8,7 +8,7 @@ publish {
     userOrg = 'lany192'
     groupId = 'com.github.lany192'
     uploadName = 'BlurDialog'
-    publishVersion = '1.0.0'
+    publishVersion = '1.0.1'
     autoPublish = true
     dryRun = false
     desc = 'Library project to display Android Dialog with a blur effect.'
