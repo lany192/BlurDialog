@@ -1,3 +1,4 @@
+[![](https://jitpack.io/v/lany192/BlurDialog.svg)](https://jitpack.io/#lany192/BlurDialog)
 # BlurDialog
 这是一个使用renderscript库实现的模糊背景的对话框
 
