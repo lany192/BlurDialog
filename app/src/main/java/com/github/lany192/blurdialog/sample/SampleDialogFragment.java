@@ -20,7 +20,7 @@ public class SampleDialogFragment extends BlurDialogFragment {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle("Blur dialog");
         builder.setMessage("Do you know?");
-        builder.setIcon(R.mipmap.ic_launcher);
+        builder.setIcon(R.drawable.android);
         builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
 
             @Override
