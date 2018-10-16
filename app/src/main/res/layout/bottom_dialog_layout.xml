@@ -3,25 +3,30 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@android:color/white"
-    android:minHeight="200dp"
     android:orientation="vertical"
     android:padding="16dp">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:text="TextView" />
 
     <Button
         android:id="@+id/button3"
         android:layout_width="match_parent"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/black"
+        android:text="@android:string/ok"
         android:layout_height="wrap_content"
-        android:text="ok" />
+        android:textColor="@android:color/white" />
 
     <Button
         android:id="@+id/sdfsd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="cancel" />
+        android:layout_marginTop="8dp"
+        android:background="@android:color/black"
+        android:text="@android:string/cancel"
+        android:textColor="@android:color/white" />
 </LinearLayout>

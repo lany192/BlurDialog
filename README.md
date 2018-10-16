@@ -8,7 +8,7 @@
 
     defaultConfig {
         ...
-        renderscriptTargetApi 27
+        renderscriptTargetApi 28
         renderscriptSupportModeEnabled true
         ...
     }
