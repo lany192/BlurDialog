@@ -5,7 +5,13 @@
 ![image](https://github.com/lany192/BlurDialog/raw/master/Screenshot/pic1.png)
 ![image](https://github.com/lany192/BlurDialog/raw/master/Screenshot/pic2.png)
 ## Join to the project
-
+	allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+    
     defaultConfig {
         ...
         renderscriptTargetApi 27
