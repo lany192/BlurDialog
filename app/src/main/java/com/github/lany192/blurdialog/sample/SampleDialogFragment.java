@@ -4,7 +4,8 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
 
 import com.github.lany192.blurdialog.BlurDialogFragment;
 
@@ -20,7 +21,6 @@ public class SampleDialogFragment extends BlurDialogFragment {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle("Blur dialog");
         builder.setMessage("Do you know?");
-        builder.setIcon(R.drawable.android);
         builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
 
             @Override

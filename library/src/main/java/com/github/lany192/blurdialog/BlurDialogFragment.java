@@ -1,12 +1,13 @@
 package com.github.lany192.blurdialog;
 
-import android.app.Activity;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.v4.app.DialogFragment;
-import android.support.v7.widget.Toolbar;
 import android.view.WindowManager;
+
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.DialogFragment;
 
 public abstract class BlurDialogFragment extends DialogFragment {
     private BlurEngine mBlurEngine;
@@ -14,17 +15,17 @@ public abstract class BlurDialogFragment extends DialogFragment {
     private boolean mDimmingEffect;
 
     @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
+    public void onAttach(Context context) {
+        super.onAttach(context);
         if (mBlurEngine != null) {
-            mBlurEngine.onAttach(activity); // re attached
+            mBlurEngine.onAttach(requireActivity()); // re attached
         }
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mBlurEngine = new BlurEngine(getActivity());
+        mBlurEngine = new BlurEngine(requireActivity());
         if (mToolbar != null) {
             mBlurEngine.setToolbar(mToolbar);
         }

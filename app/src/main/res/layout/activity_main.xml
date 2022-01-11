@@ -6,24 +6,20 @@
     android:orientation="vertical"
     tools:context="com.github.lany192.blurdialog.sample.MainActivity">
 
-    <TextView
+    <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:background="@drawable/btn_black_style"
         android:padding="8dp"
-        android:textColor="@android:color/white"
         android:text="show blur dialog" />
 
-    <TextView
+    <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:background="@drawable/btn_black_style"
         android:padding="8dp"
-        android:textColor="@android:color/white"
         android:text="show bottom dialog" />
 
     <ImageView

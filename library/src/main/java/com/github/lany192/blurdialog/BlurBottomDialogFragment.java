@@ -1,11 +1,12 @@
 package com.github.lany192.blurdialog;
 
 import android.os.Bundle;
-import android.support.v4.app.DialogFragment;
 import android.view.Gravity;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+
+import androidx.fragment.app.DialogFragment;
 
 public abstract class BlurBottomDialogFragment extends BlurDialogFragment {
 

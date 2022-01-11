@@ -15,7 +15,7 @@
 
     dependencies {
         ...
-        compile 'com.github.lany192:BlurDialog:1.0.0'
+        implementation 'com.github.lany192:BlurDialog:+'
     }
 
 ## usage

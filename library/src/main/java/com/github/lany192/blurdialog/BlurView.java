@@ -8,14 +8,17 @@ import android.content.pm.ApplicationInfo;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Rect;
-import android.support.v8.renderscript.Allocation;
-import android.support.v8.renderscript.Element;
-import android.support.v8.renderscript.RenderScript;
-import android.support.v8.renderscript.ScriptIntrinsicBlur;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewTreeObserver;
+
+
+import androidx.renderscript.Allocation;
+import androidx.renderscript.Element;
+import androidx.renderscript.RSRuntimeException;
+import androidx.renderscript.RenderScript;
+import androidx.renderscript.ScriptIntrinsicBlur;
 
 public class BlurView extends View {
     private static final String TAG = "BlurView";
@@ -121,7 +124,7 @@ public class BlurView extends View {
                 try {
                     mRenderScript = RenderScript.create(getContext());
                     mBlurScript = ScriptIntrinsicBlur.create(mRenderScript, Element.U8_4(mRenderScript));
-                } catch (android.support.v8.renderscript.RSRuntimeException e) {
+                } catch (RSRuntimeException e) {
                     if (isDebug(getContext())) {
                         if (e.getMessage() != null && e.getMessage().startsWith("Error loading RS jni library: java.lang.UnsatisfiedLinkError:")) {
                             throw new RuntimeException("Error loading RS jni library, Upgrade buildToolsVersion=\"24.0.2\" or higher may solve this issue");
@@ -316,7 +319,7 @@ public class BlurView extends View {
 
     static {
         try {
-            BlurView.class.getClassLoader().loadClass("android.support.v8.renderscript.RenderScript");
+            BlurView.class.getClassLoader().loadClass("androidx.renderscript.RenderScript");
         } catch (ClassNotFoundException e) {
             throw new RuntimeException("RenderScript support not enabled. Add \"android { defaultConfig { renderscriptSupportModeEnabled true }}\" in your build.gradle");
         }
