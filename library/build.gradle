@@ -3,16 +3,16 @@ apply plugin: 'kotlin-android'
 apply from: '../publish.gradle'
 
 android {
-    compileSdkVersion 32
+    compileSdkVersion 33
 
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 32
+        targetSdkVersion 33
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
 
-        renderscriptTargetApi 32
+        renderscriptTargetApi 33
         renderscriptSupportModeEnabled true
 
     }
@@ -26,6 +26,7 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    namespace 'com.github.lany192.blurdialog'
 }
 
 dependencies {
